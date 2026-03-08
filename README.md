@@ -1,31 +1,48 @@
-# 👋 Hi, I'm a Software Developer
+👋 Hi, I'm a Software Developer
 
-I am currently completing my apprenticeship as a **Fachinformatiker für Anwendungsentwicklung (Software Developer)** in Germany at **Xsigns**.
+I am currently completing my apprenticeship as a Fachinformatiker für Anwendungsentwicklung (Software Developer) in Germany at Xsigns.
 
-With **almost 6 years of programming experience**, I already work on **real-world projects** and focus on building **scalable, maintainable and well-structured software systems**.
+With almost 6 years of programming experience, I develop scalable, maintainable, and modular web applications.
 
-My main interest lies in **software architecture and clean code**.
+I focus on clean code, modern architecture, testing, and frontend development.
+
 
 ---
 
-# 🧠 Software Architecture
+🛠 What I Can Do
 
-I design applications using modern architectural principles:
+Design and implement modular applications following SOLID Principles, DDD, and Explicit Architecture
 
-* SOLID Principles
-* Domain Driven Design (DDD)
-* Explicit Architecture
-* Clean Architecture
+Build framework-independent application cores
 
-My projects are structured into **clearly separated layers**.
+Integrate systems via Dependency Injection
 
-```mermaid
+Develop TYPO3-CMS plugins
+
+Write self-explanatory code without comments
+
+Ensure reliability with Unit Tests, PHPStan, and Psalm
+
+Use Docker for isolated development environments
+
+Debug efficiently with Xdebug
+
+Create modern, responsive frontends using TypeScript, TailwindCSS, and Fluid
+
+
+
+---
+
+🏗 Architecture Overview
+
+This diagram shows how I structure projects using explicit architecture and Dependency Injection:
+
 flowchart TD
 %% Layers
 User[User]
 
 Plugin[CMS Plugin Layer  
-Container / Adapter]
+Container / Adapter / Persistence]
 
 Application[Application Layer  
 Use Cases]
@@ -34,7 +51,7 @@ Domain[Domain Layer
 Entities / Value Objects / Domain Services]
 
 Infrastructure[Infrastructure Layer  
-Parser / Validation / External Packages / Persistence]
+Parser / Validation / External Packages]
 
 %% Connections
 User --> Plugin
@@ -47,126 +64,170 @@ Infrastructure --> Domain
 
 Plugin -. Dependency Injection .-> Application
 Plugin -. Dependency Injection .-> Infrastructure
-```
 
-### Layer Responsibilities
+Highlights:
 
-**Domain**
+Domain: contains only business logic, independent of frameworks
 
-* Entities
-* Value Objects
-* Domain services
+Infrastructure: implements technical details (parsers, validation, external packages), depends only on Domain
 
-**Application**
+Application: orchestrates Domain logic, uses Infrastructure via Dependency Injection
 
-* Use cases
-* Orchestration of domain logic
+CMS Plugin Layer: builds the DI container, integrates CMS with Application core, implements Persistence
 
-**Infrastructure**
 
-* Persistence
-* External services
-* technical implementations
+This allows swappable adapters without rewriting the core system.
 
-**CMS Plugin Layer**
-
-The plugin layer acts as an **adapter between the CMS and the application core**.
-
-It contains only the required logic for:
-
-* user interaction
-* CMS specific integrations
-* database communication
-
-This allows the **core system to remain framework independent**.
-
-The CMS layer can be replaced with another adapter, for example:
-
-* TYPO3 Plugin
-* WordPress Plugin
-* Joomla Plugin
-* REST API Adapter
-
-without rewriting the entire application.
 
 ---
 
-# 🧹 Coding Philosophy
+🧹 Coding Philosophy
 
-I intentionally write **self-explanatory code without comments**.
+I intentionally write self-explanatory code without comments.
 
 Instead of comments, I focus on:
 
-* clear architecture
-* meaningful class and variable names
-* single responsibility
-* explicit boundaries between layers
+clear architecture
+
+meaningful class and variable names
+
+single responsibility
+
+explicit boundaries between layers
+
 
 This makes the codebase easier to understand and maintain.
 
----
-
-# ⚙️ Development Workflow
-
-My development environment and workflow includes:
-
-* **Docker** for containerized development environments
-* **GitHub** for version control and project management
-* **Xdebug** for efficient debugging
-* **PHPStan & Psalm** for static analysis and strong typing
-
-All services required for development run in **Docker containers**.
 
 ---
 
-# 🎨 Frontend Development
+⚙️ Development Workflow
+
+My development workflow includes:
+
+Docker for containerized development environments
+
+GitHub for version control and project management
+
+Xdebug for efficient debugging
+
+PHPStan & Psalm for static analysis and strong typing
+
+PHPUnit / Unit Tests for reliability and maintainability
+
+
+All services required for development run in Docker containers.
+
+
+---
+
+🎨 Frontend Development
 
 For modern frontend development I use:
 
-* **TypeScript**
-* **TailwindCSS**
-* **Fluid Template Engine**
+TypeScript
 
-My focus is on building **responsive, modern and maintainable interfaces**.
+TailwindCSS
 
----
+Fluid Template Engine
 
-# 🛠 Tech Stack
 
-### Backend
+My focus is on building responsive, modern, and maintainable interfaces.
 
-* PHP
-* TYPO3
-* Domain Driven Design
-* Clean Architecture
-
-### Frontend
-
-* TypeScript
-* TailwindCSS
-* Fluid
-
-### Development Tools
-
-* Docker
-* Git / GitHub
-* Xdebug
-* PHPStan
-* Psalm
 
 ---
 
-# 🎯 Development Focus
+🛠 Tech Stack
+
+Backend
+
+PHP
+
+TYPO3
+
+Domain Driven Design
+
+Explicit Architecture
+
+Clean Architecture
+
+
+Frontend
+
+TypeScript
+
+TailwindCSS
+
+Fluid
+
+
+Development Tools
+
+Docker
+
+Git / GitHub
+
+Xdebug
+
+PHPStan / Psalm
+
+PHPUnit / Unit Testing
+
+
+
+---
+
+📂 Project Structure
+
+My projects are organized as modular monorepos with clear separation:
+
+{project-name}-core/         # Core system (Domain + Application + Infrastructure)
+  src/
+    Domain/
+      Entity/
+      ValueObject/
+      Service/
+    Application/
+      UseCase/
+      DTO/
+      Service/
+    Infrastructure/
+      Parser/
+      Validation/
+      External/
+
+{project-name}-typo3-plugin/ # TYPO3 plugin (adapter layer)
+  composer.json               # Installs {project-name}-core via Composer
+  Plugin/
+    Persistence/
+    Controllers/
+    Configuration/
+    Templates/
+    ...
+
+Highlights:
+
+Core: contains all business logic, use cases, and infrastructure services; framework-independent
+
+Plugin: contains CMS-specific adapter logic and Persistence; declares the DI container, integrates Core services
+
+Core can be reused in other adapters (e.g., WordPress, Joomla, REST API) without changing it
+
+
+
+---
+
+🎯 Development Focus
 
 I focus on building software that is:
 
-* scalable
-* maintainable
-* modular
-* framework independent
+scalable
 
-and follows **modern architecture principles**.
+maintainable
 
----
+modular
 
-⭐ Feel free to explore my repositories to see how I structure real projects.
+framework independent
+
+
+and follows modern architecture principles.
