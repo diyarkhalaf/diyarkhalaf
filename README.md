@@ -17,7 +17,7 @@ Build framework-independent application cores
 
 Integrate systems via Dependency Injection
 
-Develop TYPO3-CMS plugins
+Develop CMS plugins for TYPO3, WordPress, Joomla
 
 Write self-explanatory code without comments
 
