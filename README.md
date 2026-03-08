@@ -21,28 +21,32 @@ My projects are structured into **clearly separated layers**.
 
 ```mermaid
 flowchart TD
-
+%% Layers
 User[User]
 
-Plugin[Typo3-CMS Plugin Layer]
+Plugin[CMS Plugin Layer  
+Container / Adapter]
 
 Application[Application Layer  
 Use Cases]
 
 Domain[Domain Layer  
-Entities  
-Value Objects  
-Domain Services]
+Entities / Value Objects / Domain Services]
 
 Infrastructure[Infrastructure Layer  
-Persistence  
-External Services]
+Parser / Validation / External Packages / Persistence]
 
+%% Connections
 User --> Plugin
 Plugin --> Application
+
 Application --> Domain
 Application --> Infrastructure
+
 Infrastructure --> Domain
+
+Plugin -. Dependency Injection .-> Application
+Plugin -. Dependency Injection .-> Infrastructure
 ```
 
 ### Layer Responsibilities
